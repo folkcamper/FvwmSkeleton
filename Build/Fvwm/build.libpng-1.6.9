@@ -1,0 +1,18 @@
+#! /bin/bash 
+
+echo "building libpng" 
+sleep 2 
+
+rm -rf libpng-1.6.9
+tar -xvf libpng-1.6.9.tar.gz
+cd libpng-1.6.9
+
+export LDFLAGS=-L../zlib-1.2.11  -L/Skel/lib
+export CPPFLAGS=-I../zlib-1.2.11 -I/Skel/include
+
+./configure --prefix=/Skel
+make
+make install
+ls -la /Skel/bin
+
+cd ../

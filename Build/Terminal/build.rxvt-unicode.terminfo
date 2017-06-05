@@ -1,0 +1,7 @@
+#! /bin/bash 
+
+cp rxvt-unicode-skel-terminfo.tar.gz /
+cd /
+tar -xvf rxvt-unicode-skel-terminfo.tar.gz 
+rm rxvt-unicode-skel-terminfo.tar.gz
+

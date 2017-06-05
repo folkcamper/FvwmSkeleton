@@ -1,0 +1,19 @@
+#! /bin/bash 
+
+# before doing this, build zlib and libpng and leave the source in place for both
+
+rm -rf fvwm-2.6.5
+tar -xf fvwm-2.6.5.tar.gz
+cd fvwm-2.6.5
+
+export LDFLAGS=-L/Skel/lib -L/usr/lib/X11
+export CPPFLAGS=-I/Skel/include -L/usr/include/X11
+export CFLAGS=-I/Skel/include -L/usr/include/X11
+
+./configure --prefix=/Skel --with-x --with-png-library=../libpng-1.6.9 --with-png-includes=../libpng-1.6.9 --with-ncurses-library=/Skel/lib
+
+make
+make install
+
+cd ../
+

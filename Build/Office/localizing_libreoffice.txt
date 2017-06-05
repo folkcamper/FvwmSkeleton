@@ -1,0 +1,16 @@
+
+# libre office is distributed as a compressed rpm file. However we can get around 
+# that. It goes something like this: 
+
+Download the rpm 
+tar -xvf libreoffice* 
+cd Libre??/RPM
+ls > extractall.bat 
+chmod 755 extractall.bat
+vi extractall.bat
+%s/^/rpmextract / 
+chmod 755 ./extractall.bat
+./extractall.bat
+mv libreoffice?.? /Skel/bin
+mv program /Skel/bin/libreoffice?.? 
+

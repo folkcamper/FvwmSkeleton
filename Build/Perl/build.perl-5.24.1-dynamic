@@ -1,0 +1,14 @@
+#! /bin/bash
+
+export LDFLAGS="-L/Skel/lib -L/usr/lib/X11"
+export CPPFLAGS="-I/Skel/include -I/Skel/include/freetype2 -I/Skel/include/libpng16 -I/usr/include/X11"
+export CFLAGS="-I/Skel/include -I/Skel/include/freetype2 -I/Skel/include/libpng16 -I/usr/include/X11"
+
+rm -rf perl-5.24.1 
+tar -xvf perl-5.24.1.tar.gz 
+tar -xvf perl-5.24.1.dynconfig.tar.gz
+cd perl-5.24.1
+./Configure -d
+make
+make install
+

@@ -1,0 +1,19 @@
+
+rm -rf  rxvt-unicode-9.22 
+tar -xvf rxvt-unicode-9.22.tar.bz2
+cd rxvt-unicode-9.22 
+
+EXPORT LDFLAGS=-L/Skel/lib
+EXPORT CPPFLAGS=-I/Skel/include
+
+# export PATH='/Skel/.fvwm/bin:/usr/local/lib/perl5/5.8.9/ExtUtils:/bin:/usr/bin:/sbin:/usr/sbin'
+# export ADDCPPFLAGS='-I/usr/include -I../perl-5.8.9 -I../include'
+
+./configure --prefix=/Skel --enable-transparency --enable-rxvt-scroll --enable-mousewheel  --enable-pointer-blank 
+
+make
+make install
+
+cd ../
+
+

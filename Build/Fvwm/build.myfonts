@@ -1,0 +1,13 @@
+#! /bin/bash 
+
+echo "Installing Programming Fonts"
+sleep 2 
+
+FOO=`pwd`
+
+cp myfonts.tar.gz /Skel
+cd /Skel
+tar -xvf myfonts.tar.gz 
+rm myfonts.tar.gz 
+
+cd $FOO

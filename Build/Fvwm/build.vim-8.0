@@ -1,0 +1,24 @@
+#! /bin/bash 
+
+export LDFLAGS="-L/Skel/lib -L/usr/lib/X11"
+export CPPFLAGS="-I/Skel/include -L/usr/include/X11"
+export CFLAGS="-I/Skel/include -L/usr/include/X11"
+
+rm -rf vim-8.0
+tar -xvf vim-8.0.tar.gz 
+cd vim-8.0
+
+./configure --prefix=/Skel
+make
+make install
+
+cd ../
+
+export THISDIR = `pwd`
+
+cd /Skel/bin
+ln -s vim vi
+
+cd $THISDIR
+
+

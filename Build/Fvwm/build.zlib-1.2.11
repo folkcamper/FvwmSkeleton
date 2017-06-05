@@ -1,0 +1,18 @@
+#! /bin/bash 
+
+echo "building zlib in /usr/local"
+sleep 2
+
+rm -rf zlib-1.2.11
+tar -xvf zlib-1.2.11.tar.gz 
+cd zlib-1.2.11/
+./configure --prefix=/Skel --libdir=/Skel/lib --includedir=/Skel/include
+
+make
+make install
+
+cp libz.so* /Skel/lib
+cp *.h /Skel/include
+
+cd ../
+

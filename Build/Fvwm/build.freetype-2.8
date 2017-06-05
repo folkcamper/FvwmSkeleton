@@ -1,0 +1,16 @@
+#! /bin/bash 
+
+echo "installing freetype" 
+sleep 2 
+
+EXPORT LDFLAGS=-L/Skel/lib
+EXPORT CPPFLAGS=-I/Skel/include
+
+rm -rf freetype-2.8
+tar -xvf freetype-2.8.tar.gz 
+cd freetype-2.8
+./configure --prefix=/Skel --libdir=/Skel/lib --includedir=/Skel/include
+make
+make install
+cd ../
+

@@ -1,0 +1,15 @@
+#! /bin/bash 
+
+# Our X environment is intended to be functional in a diskless environment. 
+# this sets up paths, extracts the current version of the opt/localeton environment 
+# and creates the opt/local user. 
+
+mkdir /Skel
+mkdir /Skel/bin
+mkdir /Skel/lib
+mkdir /Skel/include
+mkdir /Skel/media
+mkdir /Skel/.fonts
+mkdir /Skel/.icons
+mkdir /Skel/.sounds
+

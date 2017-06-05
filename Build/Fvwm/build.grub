@@ -1,0 +1,13 @@
+
+# Note: If X hangs with a black screen and doesn't recover on reboot, do this: 
+
+# replace this line in /etc/default/grub 
+
+# GRUB_CMDLINE_LINUX_DEFAULT="loglevel=4 slub_debug=P page_poison=1 nomodset i915.modeset=0 nouveau.modeset=0"
+
+# then run: 
+
+# grub-mkconfig -o /boot/grub/grub.cfg
+
+# this resets the video driver on boot and prevents blank screens of X crashes
+

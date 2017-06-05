@@ -1,0 +1,19 @@
+#! /bin/bash
+
+rm -rf rxvt-2.7.10
+tar -xf rxvt-2.7.10.tar.gz
+cd rxvt-2.7.10
+
+# ./configure --prefix=/opt/skel/current/.fvwm --with-x
+
+./configure --prefix=/usr/local --with-x --enable-transparency --enable-rxvt-scroll --enable-mousewheel --with-term=rxvt --with-terminfo=/usr/share/terminfo --enable-24bit --enable-smart-resize --enable-256-color
+
+make
+make install
+cd /usr/local/bin
+
+# by giving rxvt multiple names we can assign alternative bindings in fvwm 
+
+ln -s rxvt trterm
+ln -s rxvt bgterm
+

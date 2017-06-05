@@ -1,0 +1,18 @@
+#! /bin/bash
+
+# This is not currently building... We point fvwm at /lib, we should 
+# like to fix this and point fvwm and /opt/skel/current/.fvwm for this. 
+
+EXPORT LDFLAGS=-L/Skel/lib
+EXPORT CPPFLAGS=-I/Skel/include
+
+rm -rf ncurses-6.0
+tar -xvf ncurses-6.0.tar.gz 
+cd ncurses-6.0
+./configure --prefix=/Skel
+
+make
+make install
+cd ../
+
+

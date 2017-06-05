@@ -1,0 +1,23 @@
+#! /bin/bash
+
+# here we build Perl/Tk with the system perl, which we will then statically link into the 
+# UI perl so we can do some fancy Tk stuff. 
+
+rm -rf Tk-804.033
+tar -xvf Tk-804.033.tar.gz 
+cd Tk-804.033
+
+export LDFLAGS="-L/Skel/lib -L/usr/lib/X11"
+export CPPFLAGS="-I/Skel/include -I/Skel/include/freetype2 -I/Skel/include/libpng16 -L/usr/include/X11"
+export CFLAGS="-I/Skel/include -I/Skel/include/freetype2 -I/Skel/include/libpng16 -L/usr/include/X11"
+
+/usr/bin/perl Makefile.PL "X11INC=/usr/include/X11" "X11LIB=/usr/lib" "INC=/usr/include/X11" "X11=/usr/lib" # VOID LINUX
+
+# now edit pTk/Makefile, and fully qualify some headers so gcc can find them: 
+
+perl -i.orig -p -e 's/X11\/Xproto\.h/\/usr\/include\/X11\/Xproto\.h/g' pTk/Makefile
+perl -i.orig -p -e 's/X11\/Xutil\.h/\/usr\/include\/X11\/Xutil\.h/g' pTk/Makefile
+
+# make 
+# make install
+

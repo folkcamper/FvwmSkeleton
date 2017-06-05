@@ -1,0 +1,10 @@
+#! /bin/bash
+
+rm -rf sqlite-autoconf-3080701
+tar -xf sqlite-autoconf-3080701.tar.gz
+cd sqlite-autoconf-3080701
+./configure --prefix=/Skel
+make
+make install
+cd ..
+
